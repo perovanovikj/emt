@@ -1,7 +1,7 @@
 package com.example.lab1b.service.impl;
 
 import com.example.lab1b.model.Accomodation;
-import com.example.lab1b.model.dto.AccomodationDto;
+import com.example.lab1b.dto.CreateAccomodationDto;
 import com.example.lab1b.repository.AccomodationRepository;
 import com.example.lab1b.service.AccomodationService;
 import com.example.lab1b.service.HostService;
@@ -31,7 +31,7 @@ public class AccomodationServiceImpl implements AccomodationService {
     }
 
     @Override
-    public Optional<Accomodation> save(AccomodationDto accomodation) {
+    public Optional<Accomodation> save(CreateAccomodationDto accomodation) {
         if(accomodation.getHost() != null &&
             hostService.findById(accomodation.getHost()).isPresent()) {
             return Optional.of(
@@ -43,7 +43,7 @@ public class AccomodationServiceImpl implements AccomodationService {
         }
 
     @Override
-    public Optional<Accomodation> update(Long id, AccomodationDto accomodation) {
+    public Optional<Accomodation> update(Long id, CreateAccomodationDto accomodation) {
         return accomodationRepository.findById(id)
                 .map(ea -> {
                     if (accomodation.getName() != null) ea.setName(accomodation.getName());

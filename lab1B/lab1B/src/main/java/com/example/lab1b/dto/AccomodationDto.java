@@ -1,4 +1,4 @@
-package com.example.lab1b.model.dto;
+package com.example.lab1b.dto;
 
 import com.example.lab1b.model.Host;
 import com.example.lab1b.model.enumerations.Category;
